@@ -1,6 +1,6 @@
 {
   "name": "mgm-primeng",
-  "version": "1.0.0",
+  "version": "4.0.0-rc.3-SNAPSHOT",
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc -w",
