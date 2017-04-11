@@ -11,16 +11,17 @@ import {Subscription}   from 'rxjs/Subscription';
     selector: 'p-confirmDialog',
     template: `
         <div [ngClass]="{'ui-dialog ui-confirmdialog ui-widget ui-widget-content ui-corner-all ui-shadow':true,'ui-dialog-rtl':rtl}" 
-            [style.display]="visible ? 'block' : 'none'" [style.width.px]="width" [style.height.px]="height" (mousedown)="moveOnTop()" [@dialogState]="visible ? 'visible' : 'hidden'">
+            [style.display]="visible ? 'block' : 'none'" [style.width.px]="width" [style.height.px]="height" (mousedown)="moveOnTop()" [@dialogState]="visible ? 'visible' : 'hidden'" 
+            role="dialog" aria-labelledby="ui-dialog-title" aria-describedby="ui-confirmdialog-message">
             <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top">
-                <span class="ui-dialog-title" *ngIf="header">{{header}}</span>
+                <span class="ui-dialog-title" id="ui-dialog-title" *ngIf="header">{{header}}</span>
                 <a *ngIf="closable"  [ngClass]="{'ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all':true}" href="#" role="button" (click)="hide($event)">
                     <span class="fa fa-fw fa-close"></span>
                 </a>
             </div>
             <div class="ui-dialog-content ui-widget-content">
                 <i [class]="icon"></i>
-                <span class="ui-confirmdialog-message" [innerHTML]="message"></span>
+                <span id="ui-confirmdialog-message" class="ui-confirmdialog-message" [innerHTML]="message"></span>
             </div>
             <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" *ngIf="footer">
                 <ng-content select="p-footer"></ng-content>
